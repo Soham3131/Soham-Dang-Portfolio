@@ -55,7 +55,7 @@ function App() {
         <meta name="twitter:image" content={`${siteUrl}/ss3.jpg`} />
       </Helmet>
 
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <Navbar />
       <Home />
     </div>
