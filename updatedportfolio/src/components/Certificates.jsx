@@ -307,7 +307,7 @@ export default function Certificates() {
 
       <div className="mx-auto max-w-4xl mb-10 text-center z-10">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300/80">
-          07 · Certificates
+          06 · Certificates
         </p>
         <h2 className="mt-3 text-3xl font-semibold text-slate-50 sm:text-4xl">
           Selected certificates &amp; verifications

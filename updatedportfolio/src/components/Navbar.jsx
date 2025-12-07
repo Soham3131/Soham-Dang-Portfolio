@@ -243,6 +243,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Download } from "lucide-react";
+import soham from "../assets/ss3.jpg"
 import cvFile from "../assets/resume.pdf"; // Import your CV file
 
 const links = [
@@ -316,14 +317,30 @@ const Navbar = () => {
 
             {/* Left Side: Logo */}
             <div className="relative flex items-center gap-3">
-              <motion.div
+              {/* <motion.div
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 text-black font-bold text-sm shadow-[0_0_15px_rgba(52,211,153,0.4)]"
               >
                 SD
-              </motion.div>
+              </motion.div> */}
+              <motion.div
+  whileHover={{ 
+    scale: 1.1, 
+    rotate: 10,
+    filter: "brightness(1.1)" // Slight brightness boost on hover
+  }}
+  whileTap={{ scale: 0.9 }}
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  className="relative flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-emerald-400/20 to-cyan-500/20 shadow-[0_0_15px_rgba(52,211,153,0.3)] transition-shadow hover:shadow-[0_0_25px_rgba(52,211,153,0.6)]"
+>
+  <img 
+    src={soham} 
+    alt="Logo" 
+    className="h-full w-full object-cover" 
+  />
+</motion.div>
               <div
                 className="block leading-tight cursor-pointer"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -446,12 +463,21 @@ const Navbar = () => {
                 <Download className="h-4 w-4" />
                 Download Resume
               </a>
-              <button
+              {/* <button
                 onClick={() => scrollTo("#contact")}
                 className="rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 py-3 text-sm font-bold uppercase tracking-widest text-black"
               >
                 Let&apos;s Build Something
-              </button>
+              </button> */}
+              <motion.button
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.96 }}
+  onClick={() => scrollTo("#contact")}  // <--- Removed setIsOpen(false)
+  className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-100 transition-colors hover:bg-white/10"
+>
+  Let&apos;s Talk
+  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(74,222,128,0.9)]" />
+</motion.button>
             </div>
           </motion.div>
         )}

@@ -168,6 +168,7 @@ import { Trophy, Award, Medal, Crown, Star } from "lucide-react";
 import { cn } from "../lib/utils"; // Adjust path if needed
 import trophy from "../assets/trophy.png"; // Importing the trophy image
 
+
 const achievements = [
   {
     id: 1,
@@ -318,7 +319,7 @@ const Achievements = () => {
             viewport={{ once: true }}
             className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-emerald-400"
           >
-            06 · Recognition
+            07 · Recognition
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
