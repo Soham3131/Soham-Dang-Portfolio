@@ -98,7 +98,7 @@ function App() {
         />
         <meta
           name="keywords"
-          content="Soham Dang, Soham, SD, Soham Portfolio, Soham Dang Portfolio, Best Web Developer India, MERN Stack Developer, Full Stack Developer Haryana, React Developer India, Node Developer, 3D Web Portfolio, Best Portfolio Website Developer Dang Dang Portfolio , 3D websites, "
+          content="Soham Dang, Soham, SD, Soham Portfolio, Soham Dang Portfolio, Best Web Developer India, MERN Stack Developer, Full Stack Developer Haryana, React Developer India, Node Developer, 3D Web Portfolio, Best Portfolio Website Developer ,Dang ,Dang Portfolio , 3D websites"
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={siteUrl} />
