@@ -97,10 +97,11 @@ If you'd like to connect, collaborate, or hire me:
 
 ```
 Soham Dang, Soham Dang Portfolio, SD Developer,
+SD, Soham , Dang , Best Portfolio Website,
 Full Stack Developer India, MERN Developer India,
 React Developer, Web Developer Haryana,
 Best Developer Portfolio, sohamdang.vercel.app,
-Soham Web Developer, MERN Projects Portfolio
+Soham Web Developer, MERN Projects Portfolio,
 ```
 
 ---
