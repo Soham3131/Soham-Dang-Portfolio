@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
 
-    <!-- Favicon (Round Icon) -->
+    <!-- Favicons -->
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32.png" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,33 +13,10 @@
 
     <!-- Primary SEO -->
     <title>Soham Dang | Full Stack MERN Developer | 3D Portfolio | SD</title>
+    <meta name="description" content="Official portfolio of Soham Dang (SD) — Full Stack MERN Developer, UI/UX Engineer, 3D Web Developer and Team Lead. Explore projects, experience, dashboards, AI workflows, and premium modern portfolio website." />
 
-    <meta
-      name="description"
-      content="Official portfolio of Soham Dang (SD) — Full Stack MERN Developer, UI/UX Engineer, 3D Web Developer and Team Lead. Explore projects, experience, dashboards, AI workflows, and premium modern portfolio website."
-    />
-
-    <!-- 🔥 EXTENDED KEYWORDS FOR MAX SEO -->
-    <meta
-      name="keywords"
-      content="
-        Soham Dang, Soham, Dang, SD, Soham SD, Soham Portfolio, Soham Dang Portfolio,
-        sohamdang.vercel.app, Soham Web Developer, Soham MERN Developer,
-        Best Web Developer, Best MERN Developer India, Full Stack Developer India,
-        Full Stack Developer Haryana, Full Stack Developer Gurugram, Developer Rohtak,
-        MERN Stack Developer, React Developer, Node Developer, MongoDB Developer,
-        UI/UX Developer, 3D Developer, Three.js Developer, Best 3D Portfolio,
-        Best Portfolio Website, Modern Portfolio Website, Web Developer Portfolio,
-        Soham Instagram, Soham LinkedIn, Soham GitHub, Soham Web Designer,
-        Premium Portfolio Developer, 3D Web Portfolio, Animated Developer Portfolio,
-        Soham Full Stack Team Lead, Soham React Developer, Soham Node Developer,
-        Soham AI Developer, Soham Frontend Developer, Soham Backend Developer,
-        Best Developer Portfolio 2025, Trending Portfolio Developer,
-        Portfolio with 3D, Portfolio with animations, Developer Portfolio India,
-        Web developer Haryana, MERN portfolio website, personal developer portfolio,
-        software engineer portfolio, top developer portfolio
-      "
-    />
+    <!-- EXTENDED KEYWORDS (safe but concise) -->
+    <meta name="keywords" content="Soham Dang, Soham, Dang, SD, sohamdang.vercel.app, Full Stack Developer India, MERN Developer, React Developer, Node.js, MongoDB, Three.js, 3D portfolio, best portfolio website, animated portfolio, portfolio developer, Avani Enterprises, Rohtak, Haryana" />
 
     <meta name="author" content="Soham Dang" />
     <meta name="robots" content="index, follow" />
@@ -50,10 +28,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sohamdang.vercel.app/" />
     <meta property="og:title" content="Soham Dang | Full Stack MERN Developer | 3D Portfolio" />
-    <meta
-      property="og:description"
-      content="Explore the 3D-enabled, high-performance MERN portfolio of Soham Dang — Full Stack Developer & Team Lead. Modern UI, dashboards, AI flows, and premium experiences."
-    />
+    <meta property="og:description" content="Explore the 3D-enabled, high-performance MERN portfolio of Soham Dang — Full Stack Developer & Team Lead. Modern UI, dashboards, AI flows, and premium experiences." />
     <meta property="og:image" content="https://sohamdang.vercel.app/og-main.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -62,14 +37,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://sohamdang.vercel.app/" />
-    <meta
-      name="twitter:title"
-      content="Soham Dang | Full Stack & MERN Developer | Best Portfolio"
-    />
-    <meta
-      name="twitter:description"
-      content="Soham Dang — MERN Developer, 3D Web Engineer, Team Lead. Check projects, UI/UX designs, and more."
-    />
+    <meta name="twitter:title" content="Soham Dang | Full Stack & MERN Developer | Portfolio" />
+    <meta name="twitter:description" content="Soham Dang — MERN Developer, 3D Web Engineer, Team Lead. Check projects, UI/UX designs, and more." />
     <meta name="twitter:image" content="https://sohamdang.vercel.app/og-main.jpg" />
 
     <!-- Schema Markup -->
@@ -97,17 +66,21 @@
     }
     </script>
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8R6G67KC9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag("js", new Date());
-      gtag("config", "G-J8R6G67KC9");
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J8R6G67KC9', { 'anonymize_ip': true });
     </script>
 
-    <!-- Manifest -->
+    <!-- Web app manifest -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Optional: reduce flicker by preloading essential fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
 
   <body>

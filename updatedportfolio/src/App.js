@@ -93,7 +93,7 @@
 // }
 
 // export default App;
-
+// src/App.jsx
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "./components/Navbar";
@@ -101,19 +101,17 @@ import Home from "./pages/Home";
 import CustomCursor from "./components/CustomCursor";
 
 /**
- * App - main wrapper with strong SEO meta + structured data
- * - Make sure HelmetProvider wraps this in index.js (you already do)
- * - Ensure public/ contains: ss3.jpg, og-main.jpg, logo192.png
+ * App - SEO-friendly wrapper using react-helmet-async
+ * Ensure HelmetProvider wraps this component in index.js
  */
-function App() {
-  // Detect runtime origin (works in SSR-safe ways)
+export default function App() {
   const siteUrl =
     typeof window !== "undefined" && window.location?.origin
       ? window.location.origin
       : "https://sohamdang.vercel.app";
 
-  const fullImage = `${siteUrl}/ss3.jpg`; // fallback main image
-  const ogImage = `${siteUrl}/og-main.jpg`; // 1200x630 preferred OG image
+  const ogImage = `${siteUrl}/og-main.jpg`; // 1200x630 OG image
+  const profileImage = `${siteUrl}/ss3.jpg`;
   const logo192 = `${siteUrl}/logo192.png`;
 
   const personJsonLd = {
@@ -122,10 +120,10 @@ function App() {
     name: "Soham Dang",
     alternateName: ["SD", "Soham Dng"],
     url: siteUrl,
-    image: fullImage,
+    image: profileImage,
     jobTitle: "Full Stack MERN Developer & Team Lead",
     description:
-      "Full Stack MERN Developer (React, Node.js, Express, MongoDB). Building high-performance web apps, 3D web experiences (Three.js) and SEO-first portfolios.",
+      "Full Stack MERN Developer (React, Node.js, Express, MongoDB). Building high-performance web apps, 3D interactive experiences (Three.js) and SEO-first portfolios.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Rohtak",
@@ -161,20 +159,17 @@ function App() {
     <div className="relative min-h-screen bg-black text-white">
       <Helmet>
         {/* Primary SEO */}
-        <title>
-          Soham Dang | Full Stack MERN Developer & Team Lead | 3D Portfolio
-        </title>
+        <title>Soham Dang | Full Stack MERN Developer & Team Lead | 3D Portfolio</title>
 
         <meta
           name="description"
           content="Soham Dang (SD) — Full Stack MERN Developer & Team Lead from Rohtak. I build high-performance React apps, 3D interactive experiences (Three.js), admin dashboards and SEO-optimized portfolio websites."
         />
 
-        {/* Extended but safe keywords */}
         <meta
           name="keywords"
           content={
-            "Soham Dang, Soham, SD, sohamdang.vercel.app, Full Stack Developer, MERN Developer, React Developer, Node.js, MongoDB, Three.js, 3D portfolio, best portfolio website, portfolio developer, UI/UX, Team Lead, Avani Enterprises, Rohtak developer, Haryana developer, SEO portfolio, animated portfolio"
+            "Soham Dang, Soham, SD, sohamdang.vercel.app, Full Stack Developer, MERN Developer, React Developer, Node.js, MongoDB, Three.js, 3D portfolio, best portfolio website, portfolio developer, UI/UX, Team Lead, Avani Enterprises, Rohtak, Haryana, SEO portfolio, animated portfolio"
           }
         />
 
@@ -188,10 +183,7 @@ function App() {
         <meta property="og:site_name" content="Soham Dang Portfolio" />
         <meta property="og:url" content={siteUrl} />
         <meta property="og:title" content="Soham Dang | Full Stack MERN Developer & Team Lead" />
-        <meta
-          property="og:description"
-          content="Explore the professional MERN portfolio of Soham Dang — 3D-enabled product demos, admin dashboards, AI workflows and premium UI."
-        />
+        <meta property="og:description" content="Explore the professional MERN portfolio of Soham Dang — 3D demos, admin dashboards, AI workflows and premium UI." />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:alt" content="Soham Dang — Full Stack Developer portfolio preview" />
         <meta property="og:image:width" content="1200" />
@@ -203,20 +195,21 @@ function App() {
         <meta name="twitter:description" content="Full Stack MERN Developer & Team Lead — React, Node, 3D Web, SEO-focused portfolios." />
         <meta name="twitter:image" content={ogImage} />
 
-        {/* small perf hints (fonts/CDN) */}
+        {/* Performance hints */}
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="true" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
 
-        {/* favicon for browser + PWA icon */}
+        {/* Favicons & app icons */}
         <link rel="icon" href={`${siteUrl}/favicon.ico`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`${siteUrl}/favicon-32.png`} />
         <link rel="apple-touch-icon" href={logo192} />
 
-        {/* Structured data (Person + WebSite) */}
+        {/* Structured data */}
         <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(websiteJsonLd)}</script>
       </Helmet>
 
-      {/* If custom cursor gives issues, comment it out */}
+      {/* If CustomCursor causes issues, comment it out */}
       <CustomCursor />
 
       <Navbar />
@@ -224,6 +217,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
-
