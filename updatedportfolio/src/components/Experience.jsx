@@ -302,7 +302,7 @@ const experiences = [
   },
 ];
 
-const isCrawler = typeof navigator !== "undefined" && navigator.userAgent === "ReactSnap";
+
 
 // helper to compute staggered delays
 const getCardDelay = (index) => 0.1 + index * 0.9;
@@ -459,8 +459,8 @@ const Experience = () => {
 
       {/* dotted shader background */}
       <div className="absolute inset-0 z-0 h-full w-full">
-        {/* <DotScreenShader /> */}
-        {!isCrawler && <DotScreenShader />}
+        <DotScreenShader />
+       
       </div>
 
       {/* header */}
