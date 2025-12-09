@@ -1,5 +1,6 @@
 
 
+
 // // src/components/Education.jsx
 // import React, { useState } from "react";
 // import DisplayCards from "./ui/display-cards";
@@ -91,31 +92,33 @@
 //   const total = educationItems.length;
 
 //   const baseCardClasses =
-//     "relative overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_0%_0%,rgba(16,185,129,0.16),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(34,211,238,0.16),transparent_55%),linear-gradient(to_bottom,#020617,#020617)] backdrop-blur-xl border border-white/7 shadow-[0_22px_60px_rgba(0,0,0,0.85)] transition-all duration-500 ease-out";
+//     "relative overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_0%_0%,rgba(16,185,129,0.16),transparent_55%),radial-gradient(circle_at_100%_100%,rgba(34,211,238,0.16),transparent_55%),linear-gradient(to_bottom,#020617,#020617)] backdrop-blur-xl border border-white/7 shadow-[0_22px_60px_rgba(0,0,0,0.85)] transition-all duration-700 ease-in-out";
 
 //   const getStackClass = (offset) => {
-//     // offset 0 = front, 1 = middle, 2 = back
+//     // offset 0 = front (Active), 1 = middle (Behind), 2 = back (Furthest)
 //     switch (offset) {
-//       case 0: // front
+//       case 0: // Front Card
 //         return (
 //           baseCardClasses +
-//           " [grid-area:stack] z-30 scale-100 translate-x-0 opacity-100 ring-1 ring-emerald-400/60 shadow-[0_28px_90px_rgba(6,95,70,0.9)]"
+//           " [grid-area:stack] z-30 scale-100 translate-x-0 translate-y-0 opacity-100 ring-1 ring-emerald-400/60 shadow-[0_28px_90px_rgba(6,95,70,0.9)]"
 //         );
-//       case 1: // middle
+//       case 1: // Middle Card (Shows behind and slightly up/right)
 //         return (
 //           baseCardClasses +
-//           " [grid-area:stack] z-20 scale-95 translate-x-4 md:translate-x-20 opacity-80 hover:opacity-100 hover:scale-100 hover:translate-x-2 md:hover:translate-x-28 hover:z-40"
+//           " [grid-area:stack] z-20 scale-95 translate-x-8 -translate-y-6 md:translate-x-12 md:-translate-y-8 opacity-60 hover:opacity-90 hover:scale-100 hover:z-40"
 //         );
-//       case 2: // back
+//       case 2: // Back Card (Shows furthest behind and more up/right)
+//         return (
+//           baseCardClasses +
+//           " [grid-area:stack] z-10 scale-90 translate-x-16 -translate-y-12 md:translate-x-24 md:-translate-y-16 opacity-30 hover:opacity-90 hover:scale-100 hover:z-30"
+//         );
 //       default:
-//         return (
-//           baseCardClasses +
-//           " [grid-area:stack] z-10 scale-90 translate-x-8 md:translate-x-36 opacity-45 hover:opacity-95 hover:scale-100 hover:translate-x-6 md:hover:translate-x-32 hover:z-30"
-//         );
+//         return baseCardClasses;
 //     }
 //   };
 
 //   const educationForStack = educationItems.map((item, index) => {
+//     // Logic to determine stack order
 //     const offset = (index - activeIndex + total) % total;
 
 //     let IconComponent = GraduationCap;
@@ -191,14 +194,15 @@
 //         {/* RIGHT: stacked cards + indicators */}
 //         <div className="order-2 relative flex flex-col items-center lg:order-2 lg:items-end">
 //           {/* Cards stack */}
-//           <div className="relative flex h-[300px] items-center justify-center md:h-[500px] lg:justify-end">
-//             <div className="md:mr-24">
+//           {/* Increased height to accommodate the vertical stack */}
+//           <div className="relative flex h-[350px] items-center justify-center md:h-[500px] lg:justify-end">
+//             <div className="md:mr-10 lg:mr-24 w-full"> 
 //               <DisplayCards cards={educationForStack} />
 //             </div>
 //           </div>
 
 //           {/* Dot→dash indicators */}
-//           <div className="relative -mt-10 md:mr-32">
+//           <div className="relative -mt-4 md:-mt-10 md:mr-32">
 //             <StackIndicators
 //               activeIndex={activeIndex}
 //               onChange={setActiveIndex}
@@ -211,7 +215,6 @@
 // };
 
 // export default Education;
-
 
 // src/components/Education.jsx
 import React, { useState } from "react";
@@ -367,6 +370,22 @@ const Education = () => {
       id="education"
       className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden px-6 py-20"
     >
+      {/* --------------------------------------------------
+          HIDDEN SEO EDUCATION BLOCK
+          -------------------------------------------------- */}
+      <div style={{
+          position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px',
+          overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0
+      }}>
+        <h3>Soham Dang - Educational Qualifications</h3>
+        <p>Soham Dang is a Computer Science post-graduate from <strong>MDU Rohtak (Maharshi Dayanand University)</strong>.</p>
+        <ul>
+            <li><strong>MCA (Master of Computer Applications):</strong> MDU Rohtak, Haryana (2025-2027). Specialization in Software Architecture.</li>
+            <li><strong>BCA (Bachelor of Computer Applications):</strong> MDU Rohtak (2022-2025). Graduated with 8.53 CGPA.</li>
+            <li><strong>High School:</strong> Shri Baba Mastnath School, Rohtak. Commerce with Computer Science (8.74 CGPA).</li>
+        </ul>
+      </div>
+
       {/* Background glows */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-32 top-16 h-72 w-72 rounded-full bg-emerald-500/12 blur-[120px]" />

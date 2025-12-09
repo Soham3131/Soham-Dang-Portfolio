@@ -7,6 +7,9 @@
 //   useScroll,
 //   useTransform,
 // } from "framer-motion";
+// import { Download } from "lucide-react";
+// import soham from "../assets/ss3.jpg"
+// import cvFile from "../assets/resume.pdf"; // Import your CV file
 
 // const links = [
 //   { label: "About", href: "#about" },
@@ -14,10 +17,8 @@
 //   { label: "Experience", href: "#experience" },
 //   { label: "Projects", href: "#projects" },
 //   { label: "Education", href: "#education" },
-//     { label: "Certificates", href: "#certificates" },
-//     { label: "Achievements", href: "#achievements" },
-//   // { label: "Contact", href: "#contact" },
-
+//   { label: "Certificates", href: "#certificates" },
+//   { label: "Achievements", href: "#achievements" },
 // ];
 
 // const Navbar = () => {
@@ -37,8 +38,9 @@
 
 //   // Scroll-based shiny effect
 //   const { scrollY } = useScroll();
-//   const shineX = useTransform(scrollY, [0, 600], ["-120%", "120%"]);
-//   const shineOpacity = useTransform(scrollY, [0, 200], [0.2, 0.7]);
+//   const shineX = useTransform(scrollY, [0, 4000], ["-100%", "400%"]);
+//   // Keep opacity constant or subtle
+//   const shineOpacity = 1; 
 
 //   const scrollTo = (id) => {
 //     const el = document.querySelector(id);
@@ -52,112 +54,134 @@
 //       <motion.div
 //         initial={{ opacity: 0, y: -30 }}
 //         animate={{ opacity: 1, y: 0 }}
-//         className="fixed inset-x-0 top-0 z-30 h-20 bg-gradient-to-b from-black/90 via-black/70 to-transparent pointer-events-none"
+//         className="fixed inset-x-0 top-0 z-30 h-24 bg-gradient-to-b from-black/90 via-black/80 to-transparent pointer-events-none"
 //       />
 
 //       <nav className="fixed inset-x-0 top-0 z-40">
-//         <div className="mx-auto max-w-6xl px-4">
+//         <div className="mx-auto max-w-7xl px-4">
 //           <motion.div
-//             initial={{ x: 80, opacity: 0, scale: 0.96 }}
-//             animate={{ x: 0, opacity: 1, scale: 1 }}
+//             initial={{ y: -20, opacity: 0, scale: 0.98 }}
+//             animate={{ y: 0, opacity: 1, scale: 1 }}
 //             transition={{ duration: 0.5, ease: "easeOut" }}
-//             className={`group relative mt-3 flex items-center justify-between rounded-2xl border px-4 backdrop-blur-xl transition-all duration-300 ${
+//             // ADDED: overflow-hidden to clip the shimmer
+//             className={`group relative mt-4 flex items-center justify-between rounded-2xl border px-4 backdrop-blur-xl transition-all duration-300 overflow-hidden ${
 //               scrolled
-//                 ? "border-white/20 bg-black/80 py-2 shadow-[0_18px_55px_rgba(0,0,0,0.8)]"
-//                 : "border-white/10 bg-black/60 py-3 shadow-[0_22px_65px_rgba(0,0,0,0.9)]"
+//                 ? "border-emerald-500/20 bg-black/80 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
+//                 : "border-white/10 bg-black/40 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
 //             }`}
 //           >
-//             {/* Scroll-driven silver shine */}
+//             {/* Scroll-driven GLASS shimmer effect */}
+//             {/* CHANGED: White tint (via-white/10), Skewed, Less Blur for 'Crisp' look */}
 //             <motion.div
-//               className="pointer-events-none absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-transparent via-white/25 to-transparent blur-sm"
+//               className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
 //               style={{
 //                 x: shineX,
 //                 opacity: shineOpacity,
 //               }}
 //             />
 
-//             {/* Logo + name */}
+//             {/* Left Side: Logo */}
 //             <div className="relative flex items-center gap-3">
-//               <motion.div
-//                 whileHover={{ scale: 1.05, rotate: 6, y: -1 }}
-//                 whileTap={{ scale: 0.96, y: 0 }}
-//                 className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-white via-neutral-300 to-neutral-500 text-black font-semibold shadow-lg shadow-white/20"
+//               {/* <motion.div
+//                 whileHover={{ scale: 1.05, rotate: 5 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+//                 className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 text-black font-bold text-sm shadow-[0_0_15px_rgba(52,211,153,0.4)]"
 //               >
 //                 SD
-//               </motion.div>
-//               <div className="leading-tight">
-//                 <p className="text-sm font-medium text-white tracking-tight">
+//               </motion.div> */}
+//               <motion.div
+//   whileHover={{ 
+//     scale: 1.1, 
+//     rotate: 10,
+//     filter: "brightness(1.1)" // Slight brightness boost on hover
+//   }}
+//   whileTap={{ scale: 0.9 }}
+//   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+//   className="relative flex h-12 w-12 cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-emerald-400/20 to-cyan-500/20 shadow-[0_0_15px_rgba(52,211,153,0.3)] transition-shadow hover:shadow-[0_0_25px_rgba(52,211,153,0.6)]"
+// >
+//   <img 
+//     src={soham} 
+//     alt="Logo" 
+//     className="h-full w-full object-cover" 
+//   />
+// </motion.div>
+//               <div
+//                 className="block leading-tight cursor-pointer"
+//                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+//               >
+//                 <p className="text-sm font-bold text-white tracking-wide">
 //                   Soham Dang
 //                 </p>
-//                 <p className="text-[11px] uppercase tracking-[0.2em] text-neutral-400">
-//                   Full Stack Web Developer
+//                 <p className="text-[10px] uppercase tracking-[0.15em] text-emerald-400/80 font-medium">
+//                   Full Stack Dev
 //                 </p>
 //               </div>
 //             </div>
 
-//             {/* Desktop links */}
-//             <div className="hidden md:flex items-center gap-6">
+//             {/* Center: Desktop Navigation Links */}
+//             <div className="hidden lg:flex items-center gap-8">
 //               {links.map((l, index) => (
-//                 <motion.button
+//                 <button
 //                   key={l.label}
 //                   onClick={() => scrollTo(l.href)}
-//                   whileHover={{ y: -1 }}
-//                   className="relative text-sm text-neutral-300 hover:text-white transition-colors"
+//                   className="group relative text-xs font-medium uppercase tracking-widest text-slate-400 hover:text-white transition-colors"
 //                 >
-//                   <span>{l.label}</span>
-//                   {/* underline */}
-//                   <span className="pointer-events-none absolute left-1/2 -bottom-1 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-300 hover:w-full" />
-//                   {/* tiny index */}
-//                   <span className="absolute -top-2 -right-3 text-[9px] text-neutral-500">
+//                   {l.label}
+//                   {/* Underline Effect */}
+//                   <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full" />
+//                   {/* Number Effect */}
+//                   <span className="absolute -top-3 -right-3 text-[9px] font-bold text-emerald-500/50 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-1">
 //                     0{index + 1}
 //                   </span>
-//                 </motion.button>
+//                 </button>
 //               ))}
 //             </div>
 
-//             {/* Right: CTA + mobile hamburger */}
+//             {/* Right: Buttons + Mobile Toggle */}
 //             <div className="flex items-center gap-3">
-//               {/* CTA (desktop) */}
+//               {/* Download CV Button (Desktop) */}
+//               <motion.a
+//                 href={cvFile}
+//                 download="Soham_Dang_CV"
+//                 whileHover={{ scale: 1.05 }}
+//                 whileTap={{ scale: 0.95 }}
+//                 className="hidden md:flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-200 transition-colors hover:border-emerald-500/30 hover:bg-emerald-500/10 hover:text-emerald-400"
+//               >
+//                 <Download className="h-3.5 w-3.5" />
+//                 <span>Resume</span>
+//               </motion.a>
+
+//               {/* Let's Talk CTA (Desktop) */}
 //               <motion.button
 //                 whileHover={{ y: -1, scale: 1.02 }}
 //                 whileTap={{ scale: 0.96, y: 0 }}
 //                 onClick={() => scrollTo("#contact")}
-//                 className="hidden md:inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-neutral-100"
+//                 className="hidden md:inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-neutral-100 transition-colors hover:bg-white/10"
 //               >
 //                 Let&apos;s Talk
 //                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(74,222,128,0.9)]" />
 //               </motion.button>
 
-//               {/* Mobile 3D hamburger */}
+//               {/* Mobile Hamburger */}
 //               <button
-//                 className="relative z-50 flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/5 md:hidden"
-//                 style={{ perspective: "800px" }}
+//                 className="relative z-50 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 lg:hidden text-slate-200"
 //                 onClick={() => setOpen(!open)}
 //               >
-//                 <span className="sr-only">Toggle navigation</span>
-//                 <div
-//                   className="relative h-5 w-6 transition-transform duration-500"
-//                   style={{
-//                     transformStyle: "preserve-3d",
-//                     transform: open ? "rotateY(180deg)" : "rotateY(0deg)",
-//                   }}
-//                 >
-//                   {/* Top bar */}
+//                 <div className="relative h-4 w-5">
 //                   <span
-//                     className={`absolute left-0 top-0 h-[2px] w-full bg-neutral-100 transition-all duration-500 ${
-//                       open ? "translate-y-[9px] rotate-45" : ""
+//                     className={`absolute left-0 top-0 h-[2px] w-full rounded-full bg-current transition-all duration-300 ${
+//                       open ? "top-1.5 rotate-45" : ""
 //                     }`}
 //                   />
-//                   {/* Middle bar */}
 //                   <span
-//                     className={`absolute left-0 top-[9px] h-[2px] w-full bg-neutral-100 transition-opacity duration-300 ${
-//                       open ? "opacity-0" : "opacity-80"
+//                     className={`absolute left-0 top-1.5 h-[2px] w-full rounded-full bg-current transition-all duration-300 ${
+//                       open ? "opacity-0" : "opacity-100"
 //                     }`}
 //                   />
-//                   {/* Bottom bar */}
 //                   <span
-//                     className={`absolute left-0 bottom-0 h-[2px] w-full bg-neutral-100 transition-all duration-500 ${
-//                       open ? "-translate-y-[9px] -rotate-45" : ""
+//                     className={`absolute left-0 top-3 h-[2px] w-full rounded-full bg-current transition-all duration-300 ${
+//                       open ? "top-1.5 -rotate-45" : ""
 //                     }`}
 //                   />
 //                 </div>
@@ -167,64 +191,59 @@
 //         </div>
 //       </nav>
 
-//       {/* Mobile menu overlay */}
+//       {/* Mobile Menu Overlay */}
 //       <AnimatePresence>
 //         {open && (
 //           <motion.div
-//             initial={{ opacity: 0 }}
-//             animate={{ opacity: 1 }}
-//             exit={{ opacity: 0 }}
-//             className="fixed inset-0 z-30 md:hidden bg-black/80 backdrop-blur-lg"
+//             initial={{ opacity: 0, y: -20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             exit={{ opacity: 0, y: -20 }}
+//             className="fixed inset-0 z-30 flex flex-col bg-black/95 backdrop-blur-xl lg:hidden pt-28 px-6 pb-10 overflow-y-auto"
 //           >
-//             {/* click outside to close */}
-//             <div
-//               className="absolute inset-0"
-//               onClick={() => setOpen(false)}
-//             />
-//             <motion.div
-//               initial={{ y: -20, opacity: 0, rotateY: -8, scale: 0.95 }}
-//               animate={{ y: 0, opacity: 1, rotateY: 0, scale: 1 }}
-//               exit={{ y: -10, opacity: 0, rotateY: -5, scale: 0.96 }}
-//               transition={{ duration: 0.4, ease: "easeOut" }}
-//               className="relative mx-4 mt-24 rounded-3xl border border-white/15 bg-gradient-to-b from-white/10 via-black/90 to-black/95 p-6"
-//               style={{ transformStyle: "preserve-3d" }}
-//             >
-//               <div className="mb-4">
-//                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-//                   Navigation
-//                 </p>
-//                 <p className="text-sm text-neutral-300">
-//                   Jump through my journey and work.
-//                 </p>
-//               </div>
-
-//               <div className="space-y-2">
-//                 {links.map((l, index) => (
-//                   <motion.button
-//                     key={l.label}
-//                     initial={{ x: -10, opacity: 0 }}
-//                     animate={{ x: 0, opacity: 1 }}
-//                     transition={{ delay: 0.03 * index }}
-//                     onClick={() => scrollTo(l.href)}
-//                     className="flex w-full items-center justify-between rounded-2xl px-3 py-2 text-left text-sm text-neutral-100 hover:bg-white/5"
-//                   >
-//                     <span>{l.label}</span>
-//                     <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500">
-//                       0{index + 1}
-//                     </span>
-//                   </motion.button>
-//                 ))}
-//               </div>
-
-//               <div className="mt-4 border-t border-white/10 pt-4">
-//                 <button
-//                   onClick={() => scrollTo("#contact")}
-//                   className="w-full rounded-2xl border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-neutral-50"
+//             <div className="flex flex-col gap-4">
+//               {links.map((l, index) => (
+//                 <motion.button
+//                   key={l.label}
+//                   initial={{ opacity: 0, x: -20 }}
+//                   animate={{ opacity: 1, x: 0 }}
+//                   transition={{ delay: 0.05 * index }}
+//                   onClick={() => scrollTo(l.href)}
+//                   className="flex items-center justify-between text-lg font-medium text-slate-300 hover:text-emerald-400 border-b border-white/5 pb-3"
 //                 >
-//                   Let&apos;s Build Something
-//                 </button>
-//               </div>
-//             </motion.div>
+//                   <span className="font-bold tracking-wide">{l.label}</span>
+//                   <span className="text-[10px] uppercase tracking-widest text-slate-600">
+//                     0{index + 1}
+//                   </span>
+//                 </motion.button>
+//               ))}
+//             </div>
+
+//             {/* Mobile Actions */}
+//             <div className="mt-8 flex flex-col gap-4">
+//               <a
+//                 href={cvFile}
+//                 download="Soham_Dang_CV"
+//                 className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 py-3 text-sm font-bold text-white hover:bg-emerald-500/10 hover:border-emerald-500/30 transition-all"
+//               >
+//                 <Download className="h-4 w-4" />
+//                 Download Resume
+//               </a>
+//               {/* <button
+//                 onClick={() => scrollTo("#contact")}
+//                 className="rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 py-3 text-sm font-bold uppercase tracking-widest text-black"
+//               >
+//                 Let&apos;s Build Something
+//               </button> */}
+//               <motion.button
+//   whileHover={{ scale: 1.02 }}
+//   whileTap={{ scale: 0.96 }}
+//   onClick={() => scrollTo("#contact")}  // <--- Removed setIsOpen(false)
+//   className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-100 transition-colors hover:bg-white/10"
+// >
+//   Let&apos;s Talk
+//   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(74,222,128,0.9)]" />
+// </motion.button>
+//             </div>
 //           </motion.div>
 //         )}
 //       </AnimatePresence>
@@ -233,6 +252,7 @@
 // };
 
 // export default Navbar;
+
 
 
 import { useState, useEffect } from "react";
